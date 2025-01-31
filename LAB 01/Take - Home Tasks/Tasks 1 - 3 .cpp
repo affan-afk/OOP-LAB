@@ -16,7 +16,7 @@ int main(){
         }
         cout<<endl;
     }
-    int sum, highest = 0,index;
+    int sum, highest = 0,index -1;
     for (int i = 0; i < 4; i++)
     {
         sum = 0;
