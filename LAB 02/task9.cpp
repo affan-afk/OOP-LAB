@@ -1,53 +1,58 @@
 //muhammad affan rasheed (24k-0579)
 #include <iostream>
 using namespace std;
- struct book
- {
-    string title,author;
-    int year;
- };
- book* Bookmalloc(int x){
-    book* books = new book[x];
-    cout<<"memory allocated!"<<endl;
-    return books;
- }
- void populateArray(book* books,int x){
-    for (int i = 0; i < x; i++)
-    {
-        cout << "enter book details " << i+1 << ": " << endl;
-        cout << "title: ";
+
+struct product {
+    int productid;
+    string name;
+    int quantity;
+    float price;
+};
+
+product* productmalloc(int x) {
+    product* products = new product[x];
+    cout << "memory allocated!" << endl;
+    return products;
+}
+
+void populatearray(product* products, int x) {
+    for (int i = 0; i < x; i++) {
+        cout << "enter product details for product " << i + 1 << ": " << endl;
+        cout << "product id: ";
+        cin >> products[i].productid;
         cin.ignore();
-        getline(cin, books[i].title);
-        cout << "author name: ";
-        getline(cin, books[i].author);
-        cout << "publish year: ";
-        cin >> books[i].year;
+        cout << "product name: ";
+        getline(cin, products[i].name);
+        cout << "quantity: ";
+        cin >> products[i].quantity;
+        cout << "price: ";
+        cin >> products[i].price;
         cout << endl;
     }
- }
- void specificYearDisplay(book* books,int x){
-    cout<<"enter year to display books after: ";
-    int year; 
-    cin>>year;
-    for (int i = 0; i < x; i++)
-    {
-        if (books[i].year > year)
-        {
-            cout<<"title: "<<books[i].title<<endl<<"author: "<<books[i].author<<endl<<"year published: "<<books[i].year<<endl;
-        }
+}
+
+void totalvaluedisplay(product* products, int x) {
+    float totalvalue = 0;
+    for (int i = 0; i < x; i++) {
+        totalvalue += products[i].quantity * products[i].price;
     }
-    
- }
- void freememory(book *books){
-    delete[] books;
-    cout<<"memory freed! "<<endl;
- }
- int main(){
-    int totalBooks;
-    cout<<"enter total books: ";
-    cin>>totalBooks;
-    book* library = Bookmalloc(totalBooks);
-    populateArray(library,totalBooks);
-    specificYearDisplay(library,totalBooks);
-    freememory(library);
- }
+    cout << "total value of the inventory: " << totalvalue << endl;
+}
+
+void freememory(product* products) {
+    delete[] products;
+    cout << "memory freed!" << endl;
+}
+
+int main() {
+    int totalproducts;
+    cout << "enter total number of products: ";
+    cin >> totalproducts;
+
+    product* inventory = productmalloc(totalproducts);
+    populatearray(inventory, totalproducts);
+    totalvaluedisplay(inventory, totalproducts);
+    freememory(inventory);
+
+    return 0;
+}
