@@ -42,6 +42,16 @@ void operationOnMatrix(int ** mat1,int ** mat2,int r, int c){
         }
     }
 }
+void freemem(int**mat1,int**mat2,int rows){
+    for (int i = 0; i < rows; i++)
+    {
+        delete[] mat1[i];
+        delete[] mat2[i];
+    }
+    delete mat1;
+    delete mat2;
+    cout<<"memory freed!";
+}
 int main(){
     int rows,col;
     cout<<"enter rows for matrices: ";
@@ -63,6 +73,6 @@ int main(){
     displayMatrix(mat1,rows,col);
     cout<<"Subtraction on matrices will YiElD:"<<endl;
     displayMatrix(mat2,rows,col);
-
-
+    freemem(mat1,mat2,rows);
+    return 0;
 }
