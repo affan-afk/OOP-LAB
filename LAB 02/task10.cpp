@@ -4,7 +4,6 @@ using namespace std;
 
 int main() {
     int x, y, z;
-
     cout << "enter the 1st dimension of the 3d array:";
     cin >>x;
     cout << "enter the 2nd dimension of the 3d array:";
@@ -12,7 +11,6 @@ int main() {
     cout << "enter the 3rd dimension of the 3d array:";
     cin >>z;
     int ***array = new int**[x];
-
     for (int i = 0; i < x; i++) {
         array[i] = new int*[y];
 
@@ -20,7 +18,6 @@ int main() {
             array[i][j] = new int[z];
         }
     }
-
     for (int i = 0; i < x; i++) {
         for (int j = 0; j < y; j++) {
             for (int k = 0; k < z; k++) {
@@ -34,7 +31,7 @@ int main() {
     for (int i = 0; i < x; i++) {
         for (int j = 0; j < y; j++) {
             for (int k = 0; k < z; k++) {
-                cout << "array[" << i << "][" << j << "][" << k << "] = " << array[i][j][k] << endl;
+                cout<<"array["<<i<<"]["<<j<<"]["<<k<<"] = "<< array[i][j][k] << endl;
             }
         }
     }
