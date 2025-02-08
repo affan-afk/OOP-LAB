@@ -1,52 +1,47 @@
+//muhammad affan rasheed (24k-0579)
 #include <iostream>
 using namespace std;
- struct book
+ struct employee
  {
-    string title,author;
-    int year;
+    string name;
+    double hoursWorked,hourlyRate;
  };
- book* Bookmalloc(int x){
-    book* books = new book[x];
+ employee* employeemalloc(int x){
+    employee* employees = new employee[x];
     cout<<"memory allocated!"<<endl;
-    return books;
+    return employees;
  }
- void populateArray(book* books,int x){
+ void populateArray(employee* employees,int x){
     for (int i = 0; i < x; i++)
     {
-        cout << "enter book details " << i+1 << ": " << endl;
-        cout << "title: ";
-        cin.ignore();
-        getline(cin, books[i].title);
-        cout << "author name: ";
-        getline(cin, books[i].author);
-        cout << "publish year: ";
-        cin >> books[i].year;
+        cout << "enter employee details " << i+1 << ": " << endl;
+        cout << "name: ";
+        cin>>employees[i].name;
+        cout << "enter hourly Rate: ";
+        cin>> employees[i].hourlyRate;
+        cout << "enter hours Worked: ";
+        cin >> employees[i].hoursWorked;
         cout << endl;
     }
  }
- void specificYearDisplay(book* books,int x){
-    cout<<"enter year to display books after: ";
-    int year; 
-    cin>>year;
+ void calculateAndDisplaySalary(employee* employees,int x){
+
     for (int i = 0; i < x; i++)
     {
-        if (books[i].year > year)
-        {
-            cout<<"title: "<<books[i].title<<endl<<"author: "<<books[i].author<<endl<<"year published: "<<books[i].year<<endl;
-        }
+        cout<<i+1<<". "<<employees[i].name<<" has Salary:"<<employees[i].hoursWorked*employees[i].hourlyRate<<endl;
     }
     
  }
- void freememory(book *books){
-    delete[] books;
+ void freememory(employee *employee){
+    delete[] employee;
     cout<<"memory freed! "<<endl;
  }
  int main(){
-    int totalBooks;
-    cout<<"enter total books: ";
-    cin>>totalBooks;
-    book* library = Bookmalloc(totalBooks);
-    populateArray(library,totalBooks);
-    specificYearDisplay(library,totalBooks);
-    freememory(library);
+    int totalemployees;
+    cout<<"enter total employees: ";
+    cin>>totalemployees;
+    employee* company = employeemalloc(totalemployees);
+    populateArray(company,totalemployees);
+    calculateAndDisplaySalary(company,totalemployees);
+    freememory(company);
  }
