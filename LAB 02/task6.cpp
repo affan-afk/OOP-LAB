@@ -1,52 +1,52 @@
+//muhammad affan rasheed (24k-0579)
 #include <iostream>
+#include <string>
+
 using namespace std;
- struct book
- {
-    string title,author;
-    int year;
- };
- book* Bookmalloc(int x){
-    book* books = new book[x];
-    cout<<"memory allocated!"<<endl;
-    return books;
- }
- void populateArray(book* books,int x){
-    for (int i = 0; i < x; i++)
-    {
-        cout << "enter book details " << i+1 << ": " << endl;
-        cout << "title: ";
-        cin.ignore();
-        getline(cin, books[i].title);
-        cout << "author name: ";
-        getline(cin, books[i].author);
-        cout << "publish year: ";
-        cin >> books[i].year;
-        cout << endl;
+
+struct Student {
+    string name;
+    int rollno;
+    int marks[3];
+    float avg;
+};
+
+void calculateavg(Student &student) {
+    float sum = 0;
+    for (int i = 0; i < 3; ++i) {
+        sum += student.marks[i];
     }
- }
- void specificYearDisplay(book* books,int x){
-    cout<<"enter year to display books after: ";
-    int year; 
-    cin>>year;
-    for (int i = 0; i < x; i++)
-    {
-        if (books[i].year > year)
-        {
-            cout<<"title: "<<books[i].title<<endl<<"author: "<<books[i].author<<endl<<"year published: "<<books[i].year<<endl;
+    student.avg = sum / 3;
+}
+
+int main() {
+    int totalstudents;
+    cout << "enter the number of students: ";
+    cin >> totalstudents;
+    Student* students = new Student[totalstudents];
+    for (int i = 0; i < totalstudents; ++i) {
+        cout << "enter details for student " << i + 1 <<endl;
+        cout << "name: ";
+        cin >> students[i].name;
+        cout << "roll no: ";
+        cin >> students[i].rollno;
+        for (int j = 0; j < 3; ++j) {
+            cout << "enter marks for subject  " << j + 1 << ": ";
+            cin >> students[i].marks[j];
         }
+        calculateavg(students[i]);
     }
-    
- }
- void freememory(book *books){
-    delete[] books;
-    cout<<"memory freed! "<<endl;
- }
- int main(){
-    int totalBooks;
-    cout<<"enter total books: ";
-    cin>>totalBooks;
-    book* library = Bookmalloc(totalBooks);
-    populateArray(library,totalBooks);
-    specificYearDisplay(library,totalBooks);
-    freememory(library);
- }
+
+    cout << "istudent records:"<<endl;
+    for (int i = 0; i <totalstudents; ++i) {
+        cout << "name: "<<students[i].name<<endl;
+        cout << "roll number: " << students[i].rollno<<endl;
+        cout << "marks: "<<endl;
+        for (int j = 0; j < 3; ++j) {
+            cout << students[i].marks[j] <<endl;
+        }
+        cout<<"avg marks: " << students[i].avg <<endl;
+    }
+    delete[] students;
+    return 0;
+}
