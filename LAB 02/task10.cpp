@@ -1,52 +1,51 @@
+//muhammad affan rasheed (24k-0579)
 #include <iostream>
 using namespace std;
- struct book
- {
-    string title,author;
-    int year;
- };
- book* Bookmalloc(int x){
-    book* books = new book[x];
-    cout<<"memory allocated!"<<endl;
-    return books;
- }
- void populateArray(book* books,int x){
-    for (int i = 0; i < x; i++)
-    {
-        cout << "enter book details " << i+1 << ": " << endl;
-        cout << "title: ";
-        cin.ignore();
-        getline(cin, books[i].title);
-        cout << "author name: ";
-        getline(cin, books[i].author);
-        cout << "publish year: ";
-        cin >> books[i].year;
-        cout << endl;
-    }
- }
- void specificYearDisplay(book* books,int x){
-    cout<<"enter year to display books after: ";
-    int year; 
-    cin>>year;
-    for (int i = 0; i < x; i++)
-    {
-        if (books[i].year > year)
-        {
-            cout<<"title: "<<books[i].title<<endl<<"author: "<<books[i].author<<endl<<"year published: "<<books[i].year<<endl;
+
+int main() {
+    int x, y, z;
+
+    cout << "enter the 1st dimension of the 3d array:";
+    cin >>x;
+    cout << "enter the 2nd dimension of the 3d array:";
+    cin >>y;
+    cout << "enter the 3rd dimension of the 3d array:";
+    cin >>z;
+    int ***array = new int**[x];
+
+    for (int i = 0; i < x; i++) {
+        array[i] = new int*[y];
+
+        for (int j = 0; j < y; j++) {
+            array[i][j] = new int[z];
         }
     }
-    
- }
- void freememory(book *books){
-    delete[] books;
-    cout<<"memory freed! "<<endl;
- }
- int main(){
-    int totalBooks;
-    cout<<"enter total books: ";
-    cin>>totalBooks;
-    book* library = Bookmalloc(totalBooks);
-    populateArray(library,totalBooks);
-    specificYearDisplay(library,totalBooks);
-    freememory(library);
- }
+
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            for (int k = 0; k < z; k++) {
+                cout << "enter element at position ("<<i<<", "<<j<<", "<<k<< "): ";
+                cin>>array[i][j][k];
+            }
+        }
+    }
+
+    cout << "elements of the 3d array are:" << endl;
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            for (int k = 0; k < z; k++) {
+                cout << "array[" << i << "][" << j << "][" << k << "] = " << array[i][j][k] << endl;
+            }
+        }
+    }
+
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            delete[] array[i][j];
+        }
+        delete[] array[i];
+    }
+    delete[] array;
+
+    return 0;
+}
