@@ -4,10 +4,13 @@ using namespace std;
 class wallet
 {
 private:
-    string ownerName = "Saad";
+    string ownerName;
     double totalBalance;
     double transactionHistory[100] = {0.0};
 public:
+    void setName(string name){
+        ownerName = name;
+    }
     void addMoney(double amount){
         if (amount > 0)
         {
@@ -60,6 +63,7 @@ public:
 };
 int main(){
     wallet myWallet;
+    myWallet.setName("Saad Khan");
     myWallet.addMoney(12.3);
     myWallet.addMoney(23.332);
     myWallet.addMoney(1332.35);
@@ -69,5 +73,3 @@ int main(){
     myWallet.displayTransactionHistory();
     return 0;
 }
-
-
