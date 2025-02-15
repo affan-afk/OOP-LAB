@@ -1,3 +1,4 @@
+//muhammad affan rasheed (24k-0579)
 #include<iostream>
 using namespace std;
 class Car{
@@ -34,14 +35,15 @@ class Car{
         cout<<"Fuel Level = "<<currentFuelLevel<<" Litres"<<endl;
     }
     void refuelTank(double refillAmount){
-        if (refillAmount < fuelCapacity )
+        if (refillAmount < fuelCapacity - currentFuelLevel)
         {
             currentFuelLevel += refillAmount;
             cout<<refillAmount<<" of fuel successfully added to fuel tank! "<<endl;
             cout<<"New Fuel = "<<fuelStatus()<<" Litres"<<endl;
         }
-        else if (refillAmount > fuelCapacity)
+        else if (refillAmount > fuelCapacity - currentFuelLevel)
         {
+            currentFuelLevel += fuelCapacity-currentFuelLevel;
             cout<<fuelCapacity-currentFuelLevel<<"Litres of fuel successfully added to fuel tank! "<<endl;
             cout<<"Fuel Tank Full!!"<<endl;
         }
