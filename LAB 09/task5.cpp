@@ -38,12 +38,12 @@ int main() {
     shipments[0] =new AirFreight("ek506", 32.5);
     shipments[1] = new GroundShipment("lt5543", 55.8);
 
-    for (int i=0;i < 2; ++i) {
+    for (int i=0;i < 2; i++) {
         shipments[i]->showDetails();
         shipments[i]->estimateDeliveryTime();
     }
 
-    for (int i =0; i< 2;++i) {
+    for (int i =0; i< 2;i++) {
         delete shipments[i];
     }
     return 0;
