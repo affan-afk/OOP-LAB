@@ -17,7 +17,7 @@ public:
     void estimateDeliveryTime(){
         cout<< "Air Freight Delivery Time: " << weight * 0.5 << " hours" << endl;
     }
-    void showDetails() override {
+    void showDetails(){
         cout<<"Air Freight - Tracking Number: "<<trackingNumber<<", Weight: "<<weight<<" kg"<< endl;
     }
 };
