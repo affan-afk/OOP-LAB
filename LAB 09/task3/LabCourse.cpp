@@ -1,8 +1,8 @@
 #include <iostream>
-#include "LectureCourse.h"
+#include "LabCourse.h"
 using namespace std;
 int main(){
-    LectureCourse oop("CS1002",3);
+    LabCourse oop("CS1003",1);
     oop.calculateGrade();
     oop.displayInfo();
 }
