@@ -31,10 +31,10 @@ int main(){
     WeatherSensor* sensors[2];
     sensors[0] = new Thermometer();
     sensors[1] = new Barometer();
-    for (int i = 0; i< 2; ++i) {
+    for (int i = 0; i< 2; i++) {
         sensors[i]->readData();
-        sensors[i]->displayReport();
-    for (int i = 0; i < 2; ++i) {
+        sensors[i]->displayReport();}
+    for (int i = 0; i < 2; i++) {
         delete sensors[i];
     }
     return 0;
