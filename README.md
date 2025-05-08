@@ -34,7 +34,7 @@ OOP-Lab/
 - Exception Handling
 - Templates and STL Usage
 - Composition and Aggregation
-- Basic Game Programming (with SFML, if applicable)
+- Basic Game Programming (with SFML)
 
 ---
 
@@ -94,4 +94,4 @@ OOP-Lab/
 
 ## 📄 License
 
-This repository is for educational purposes only. All rights reserved © Your Name, 2025.
+This repository is for educational purposes only. All rights reserved © Muhammad Affan Rasheed, 2025.
