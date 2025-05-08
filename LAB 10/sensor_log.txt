@@ -1,0 +1,6 @@
+Sensor 1: 25.5 C
+Sensor 2: 98.1 %RH
+Sensor 3: 1010 Pa
+Sensor 3: 1010 Pa
+Sensor 4: 43% Humidity
+ Sensor 3: 1010 Pa Sensor 4: 43% Humidity	 Sensor 5: 21%  Light		 Sensor 3: 1010 Pa Sensor 4: 43% Humidity	 Sensor 5: 21%  Light		
