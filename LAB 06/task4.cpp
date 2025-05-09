@@ -9,7 +9,7 @@ protected:
 public:
     Account(int accNo, float bal) : accountNumber(accNo), balance(bal) {}
 
-    virtual void displayDetails() {
+    void displayDetails() {
         cout << "Account Number: " << accountNumber << "\nBalance: $" << balance << endl;
     }
 };
